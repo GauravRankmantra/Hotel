@@ -1,16 +1,19 @@
-import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 
-
-const GridMotion = ({ items = [], gradientColor = 'black' }) => {
+const GridMotion = ({ items = [], gradientColor = "black" }) => {
   const gridRef = useRef(null);
   const rowRefs = useRef([]); // Array of refs for each row
   const mouseXRef = useRef(window.innerWidth / 2);
 
   // Ensure the grid has 28 items (4 rows x 7 columns) by default
   const totalItems = 28;
-  const defaultItems = Array.from({ length: totalItems }, (_, index) => `Item ${index + 1}`);
-  const combinedItems = items.length > 0 ? items.slice(0, totalItems) : defaultItems;
+  const defaultItems = Array.from(
+    { length: totalItems },
+    (_, index) => `Item ${index + 1}`
+  );
+  const combinedItems =
+    items.length > 0 ? items.slice(0, totalItems) : defaultItems;
 
   useEffect(() => {
     gsap.ticker.lagSmoothing(0);
@@ -27,14 +30,18 @@ const GridMotion = ({ items = [], gradientColor = 'black' }) => {
       rowRefs.current.forEach((row, index) => {
         if (row) {
           const direction = index % 2 === 0 ? 1 : -1;
-          const moveAmount = ((mouseXRef.current / window.innerWidth) * maxMoveAmount - maxMoveAmount / 2) * direction;
+          const moveAmount =
+            ((mouseXRef.current / window.innerWidth) * maxMoveAmount -
+              maxMoveAmount / 2) *
+            direction;
 
           // Apply inertia and staggered stop
           gsap.to(row, {
             x: moveAmount,
-            duration: baseDuration + inertiaFactors[index % inertiaFactors.length],
-            ease: 'power3.out',
-            overwrite: 'auto',
+            duration:
+              baseDuration + inertiaFactors[index % inertiaFactors.length],
+            ease: "power3.out",
+            overwrite: "auto",
           });
         }
       });
@@ -42,11 +49,11 @@ const GridMotion = ({ items = [], gradientColor = 'black' }) => {
 
     const removeAnimationLoop = gsap.ticker.add(updateMotion);
 
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove);
     rowRefs.current.forEach((row, index) => {
       if (row) {
         const direction = index % 2 === 0 ? 1 : -1;
-    
+
         // Create the infinite scroll tween, but paused initially
         const scrollTween = gsap.to(row, {
           x: direction * -1000,
@@ -55,21 +62,19 @@ const GridMotion = ({ items = [], gradientColor = 'black' }) => {
           repeat: -1,
           paused: true,
         });
-    
+
         // Hover starts animation
         row.addEventListener("mouseenter", () => scrollTween.play());
-    
+
         // Leave stops animation
         row.addEventListener("mouseleave", () => scrollTween.pause());
       }
     });
-    
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener("mousemove", handleMouseMove);
       removeAnimationLoop(); // Properly remove the ticker listener
     };
-    
   }, []);
 
   return (
@@ -91,24 +96,29 @@ const GridMotion = ({ items = [], gradientColor = 'black' }) => {
                 const content = combinedItems[rowIndex * 7 + itemIndex];
                 return (
                   <div key={itemIndex} className="row__item">
-                    <div className="row__item-inner" style={{ backgroundColor: '#111' }}>
-                    {typeof content === 'string' && (content.startsWith('http') || content.endsWith('.jpg') || content.endsWith('.png')) ? (
-  <div
-    className="row__item-img"
-    style={{
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      width: '100%',
-      height: '100%',
-      backgroundImage: `url(${content})`,
-    }}
-  ></div>
-) : typeof content === 'object' ? (
-  content
-) : (
-  <div className="row__item-content">{content}</div>
-)}
-
+                    <div
+                      className="row__item-inner"
+                      style={{ backgroundColor: "#111" }}
+                    >
+                      {typeof content === "string" &&
+                      (content.startsWith("http") ||
+                        content.endsWith(".jpg") ||
+                        content.endsWith(".png")) ? (
+                        <div
+                          className="row__item-img"
+                          style={{
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                            width: "100%",
+                            height: "100%",
+                            backgroundImage: `url(${content})`,
+                          }}
+                        ></div>
+                      ) : typeof content === "object" ? (
+                        content
+                      ) : (
+                        <div className="row__item-content">{content}</div>
+                      )}
                     </div>
                   </div>
                 );

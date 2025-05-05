@@ -1,199 +1,186 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@300;400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@300;400&display=swap");
 
 @font-face {
-    font-family: RalewayR;
-    src: url("./assets/fonts/Raleway-Regular.ttf");
-  }
-  @font-face {  
-      font-family: RalewayL;
-      src: url("./assets/fonts/Raleway-Light.ttf");
-    }
-    @font-face {
-      font-family: RalewayM;
-      src: url("./assets/fonts/Raleway-Medium.ttf");
-    }
-    @font-face {
-      font-family: RalewaySb;
-      src: url("./assets/fonts/Raleway-SemiBold.ttf");
-    }
-    @font-face {
-      font-family: RalewayB;
-      src: url("./assets/fonts/Raleway-Bold.ttf");
-    }
-  @import "tailwindcss";
-  @theme {
-    --font-ralewayM: RalewayM, "sans-serif";
-    --font-ralewayL: RalewayL, "sans-serif";
-    --font-ralewaySb: RalewaySb, "sans-serif";
-    --font-ralewayB: RalewayB, "sans-serif";
-    --font-ralewayR: RalewayR, "sans-serif";
-  
-  }
-  
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-  .scrollbar-hide {
-    -ms-overflow-style: none;  
-    scrollbar-width: none;
-  }
-  
+  font-family: RalewayR;
+  src: url("./assets/fonts/Raleway-Regular.ttf");
+}
+@font-face {
+  font-family: RalewayL;
+  src: url("./assets/fonts/Raleway-Light.ttf");
+}
+@font-face {
+  font-family: RalewayM;
+  src: url("./assets/fonts/Raleway-Medium.ttf");
+}
+@font-face {
+  font-family: RalewaySb;
+  src: url("./assets/fonts/Raleway-SemiBold.ttf");
+}
+@font-face {
+  font-family: RalewayB;
+  src: url("./assets/fonts/Raleway-Bold.ttf");
+}
+@import "tailwindcss";
+@theme {
+  --font-ralewayM: RalewayM, "sans-serif";
+  --font-ralewayL: RalewayL, "sans-serif";
+  --font-ralewaySb: RalewaySb, "sans-serif";
+  --font-ralewayB: RalewayB, "sans-serif";
+  --font-ralewayR: RalewayR, "sans-serif";
+}
 
-  .font-luxury {
-    font-family: 'Playfair Display', serif;
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.font-luxury {
+  font-family: "Playfair Display", serif;
+}
+
+.font-sans {
+  font-family: "Open Sans", sans-serif;
+}
+
+.shiny-text {
+  color: #0f0f0f40; /* Adjust this color to change intensity/style */
+  background: linear-gradient(
+    120deg,
+    rgba(0, 0, 0, 1) 40%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 255, 255, 1) 90%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  display: inline-block;
+  animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 100%;
   }
-  
-  .font-sans {
-    font-family: 'Open Sans', sans-serif;
+  100% {
+    background-position: -100%;
   }
-  
-  .shiny-text {
-    color: #0f0f0f40; /* Adjust this color to change intensity/style */
-    background: linear-gradient(
-      120deg,
-      rgba(0, 0, 0, 1) 40%,
-      rgba(255, 255, 255, 1) 50%,
-      rgba(255, 255, 255, 1) 90%
-    );
-    background-size: 200% 100%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    display: inline-block;
-    animation: shine 5s linear infinite;
-  }
-  
-  @keyframes shine {
-    0% {
-      background-position: 100%;
-    }
-    100% {
-      background-position: -100%;
-    }
-  }
-  
-  .shiny-text.disabled {
-    animation: none;
-  }
-  .gallery-container {
-    position: relative;
-    height: 480px;
-    width: 100%;
-    overflow: hidden;
-    background-color: #ffffff;
-  }
-  
-  .gallery-gradient {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 200px;
-    z-index: 10;
-    pointer-events: none;
-  }
-  
-  .gallery-gradient-left {
-    left: 0;
-    background: linear-gradient(to left, transparent, #ffffff 100%);
-  }
-  
-  .gallery-gradient-right {
-    right: 0;
-    background: linear-gradient(to right, transparent, #ffffff 100%);
-  }
-  
-  .gallery-content {
-    display: flex;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-    perspective: 1500px;
-    transform-style: preserve-3d;
-  }
-  
-  .gallery-track {
-    display: flex;
-    min-height: 440px;
-    align-items: center;
-    justify-content: center;
-    cursor: grab;
-    transform-style: preserve-3d;
-  }
-  
-  .gallery-item {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 4%;
-    backface-visibility: hidden;
-  }
-  
-  .gallery-img {
-    height: 240px;
-    width: 840px;
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    object-fit: cover;
-    transition: transform 0.4s ease, box-shadow 0.3s ease;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    filter: brightness(0.95);
-  }
-  
-  .gallery-item:hover .gallery-img {
-    transform: scale(1.06);
-    filter: brightness(1.05);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-  }
-  
-  @media (max-width: 768px) {
-    .gallery-container {
-      height: 400px;
-    }
-    .gallery-img {
-      height: 110px;
-      width: 260px;
-    }
-  }
-  
+}
+
+.shiny-text.disabled {
+  animation: none;
+}
+
+.noscroll {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.intro {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../../../assets/noise.png");
+  background-size: 250px;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.gridMotion-container {
+  gap: 1rem;
+  flex: none;
+  position: relative;
+  width: 150vw;
+  height: 150vh;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: 100%;
+  transform: rotate(-15deg);
+  transform-origin: center center;
+  z-index: 2;
+}
+
+.row {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(7, 1fr);
+  will-change: transform, filter;
+}
+
+.row__item {
+  position: relative;
+}
+
+.row__item-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.row__item-img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: 50% 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.row__item-content {
+  padding: 1rem;
+  text-align: center;
+  z-index: 1;
+}
+
+.fullview {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.fullview .row__item-inner {
+  border-radius: 0px;
+}
 
 
 
-  .noscroll {
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-  }
-  
-  .intro {
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .intro::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('../../../assets/noise.png');
-    background-size: 250px;
-    pointer-events: none;
-    z-index: 4;
-  }
-  
+
+@media (max-width: 768px) {
   .gridMotion-container {
     gap: 1rem;
     flex: none;
     position: relative;
-    width: 150vw;
-    height: 150vh;
+    width: 350vw;
+    height: 120vh;
     display: grid;
     grid-template-rows: repeat(4, 1fr);
     grid-template-columns: 100%;
@@ -201,58 +188,4 @@
     transform-origin: center center;
     z-index: 2;
   }
-  
-  .row {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(7, 1fr);
-    will-change: transform, filter;
-  }
-  
-  .row__item {
-    position: relative;
-  }
-  
-  .row__item-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    border-radius: 10px;
-    background-color: #111;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 1.5rem;
-  }
-  
-  .row__item-img {
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: 50% 50%;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  
-  .row__item-content {
-    padding: 1rem;
-    text-align: center;
-    z-index: 1;
-  }
-  
-  .fullview {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-  }
-  
-  .fullview .row__item-inner {
-    border-radius: 0px;
-  }
-  
+}
