@@ -4,12 +4,14 @@ import { Navigation, Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import wedding from "../assets/events/wedding.png";
+import wedding from "../assets/events/wedding2.png";
 import birthday from "../assets/slider/1.jpg";
 import corporateEvents from "../assets/slider/3.jpg"; // Using corporate image as it was "Seamless Events"
 import { BsArrowRight } from "react-icons/bs";
+import { useNavigate } from "react-router";
 
 const HeroSection = () => {
+  const navigate = useNavigate()
   const slidesData = [
     {
       img: wedding,
@@ -41,17 +43,20 @@ const HeroSection = () => {
           {slidesData.map((slide, idx) => (
             <SwiperSlide key={idx}>
               <div
-                className="h-full bg-cover bg-center flex items-center justify-center text-white p-8 md:p-16"
+                className="md:h-full h-[350px]  bg-center flex items-center  justify-center text-white p-8 md:p-16"
                 style={{ backgroundImage: `url(${slide.img})` }}
               >
                 <div className="absolute inset-0 bg-black/30 " />
                 <div className="relative z-10 text-center max-w-xl">
-                  <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
+                  <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold mb-4 leading-tight">
                     {slide.heading}
                   </h2>
-                  <p className="text-xs md:text-lg text-gray-200 mb-6">{slide.desc}</p>
-                  <button className="bg-[#f79b1e] text-white font-semibold px-6 py-3 rounded-full transition-colors duration-300 shadow-md">
-                    Explore More <BsArrowRight className="inline-block ml-2" />
+                  {/* <p className="text-xs md:text-lg text-gray-200 mb-6">{slide.desc}</p> */}
+                  <button
+                  onClick={()=>navigate("/contact")}
+                  className="bg-[#f79b1e]  text-white font-semibold text-xs md:text-sm px-3 py-3 md:px-6 md:py-3 rounded-full transition-colors duration-300 shadow-md">
+                    <span>Book Now </span>
+                    <BsArrowRight className="inline-block ml-1" />
                   </button>
                 </div>
               </div>

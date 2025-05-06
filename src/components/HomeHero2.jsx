@@ -75,13 +75,13 @@ const HomeHero2 = () => {
   };
 
   return (
-    <div className="w-full  py-10 px-4 sm:px-6 lg:px-8">
+    <div className="w-full  py-10 px-1 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
           loop={true}
           autoplay={{
-            delay: 4000,
+            delay: 2000,
             disableOnInteraction: false,
           }}
        

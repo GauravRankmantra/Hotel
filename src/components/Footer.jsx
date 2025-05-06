@@ -1,5 +1,12 @@
 import React from "react";
-import { FaFacebookF, FaInstagram, FaTwitter, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaTwitter,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaMapMarkerAlt,
+} from "react-icons/fa";
 import { motion } from "framer-motion";
 import logo from "../assets/logo.jpg"; // Replace with your actual logo path
 
@@ -16,8 +23,8 @@ const Footer = () => {
         >
           <img src={logo} alt="Hotel Logo" className=" mb-4" />
           <p className="text-gray-400 text-sm">
-            Escape to comfort and luxury. Our resort offers a serene environment,
-            perfect for your vacation, events, and more.
+            Escape to comfort and luxury. Our resort offers a serene
+            environment, perfect for your vacation, events, and more.
           </p>
         </motion.div>
 
@@ -30,10 +37,26 @@ const Footer = () => {
         >
           <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
           <ul className="space-y-6 text-gray-700 text-sm">
-            <li><a href="#about" className="hover:text-black transition">About Us</a></li>
-            <li><a href="#rooms" className="hover:text-black transition">Rooms & Cottages</a></li>
-            <li><a href="#adventure" className="hover:text-black transition">Adventure</a></li>
-            <li><a href="#contact" className="hover:text-black transition">Contact</a></li>
+            <li>
+              <a href="#about" className="hover:text-black transition">
+                About Us
+              </a>
+            </li>
+            <li>
+              <a href="#rooms" className="hover:text-black transition">
+                Rooms & Cottages
+              </a>
+            </li>
+            <li>
+              <a href="#adventure" className="hover:text-black transition">
+                Adventure
+              </a>
+            </li>
+            <li>
+              <a href="#contact" className="hover:text-black transition">
+                Contact
+              </a>
+            </li>
           </ul>
         </motion.div>
 
@@ -47,15 +70,19 @@ const Footer = () => {
           <h3 className="text-lg font-semibold mb-4">Contact</h3>
           <ul className="space-y-6 text-gray-800 text-sm">
             <li className="flex items-center gap-2">
-              <FaPhoneAlt className="text-[#f79b1e]" />
-              <a href="tel:+919876543210" className="hover:text-white transition">
-                +91 98765 43210
-              </a>
+              <FaPhoneAlt className="text-[#f79b1e] text-2xl" />
+              <a href="tel:+919876543210">+91 98765 43210</a>
             </li>
             <li className="flex items-center gap-2">
-              <FaEnvelope className="text-red-400" />
-              <a href="mailto:info@yourhotel.com" className="hover:text-white transition">
-                info@yourhotel.com
+              <FaEnvelope className="text-red-400 text-2xl" />
+              <a href="mailto:info@yourhotel.com">info@chandrainn.com</a>
+            </li>
+            <li className="flex items-center gap-2">
+              <FaMapMarkerAlt className="text-yellow-500 text-6xl" />
+
+              <a href="mailto:info@yourhotel.com">
+                Haridwar Bypass Rd, opp. Big Bazaar Mall, near ISBT, Chaudhary
+                Colony, Majra, Dehradun, Shewala Kala, Uttarakhand 248001
               </a>
             </li>
           </ul>
@@ -74,7 +101,7 @@ const Footer = () => {
               href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-indigo-500 hover:bg-indigo-600 p-3 rounded-full transition"
+              className="bg-[#f79b1e] hover:bg-indigo-600 text-white p-3 rounded-full transition"
             >
               <FaFacebookF />
             </a>
@@ -82,7 +109,7 @@ const Footer = () => {
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-pink-500 hover:bg-pink-600 p-3 rounded-full transition"
+              className="bg-[#a24037] hover:bg-pink-600 text-white p-3 rounded-full transition"
             >
               <FaInstagram />
             </a>
@@ -90,7 +117,7 @@ const Footer = () => {
               href="https://twitter.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-blue-500 hover:bg-blue-600 p-3 rounded-full transition"
+              className="bg-[#e9692a] text-white hover:bg-blue-600 p-3 rounded-full transition"
             >
               <FaTwitter />
             </a>

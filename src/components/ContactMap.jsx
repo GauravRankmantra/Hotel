@@ -30,7 +30,7 @@ const ContactMap = () => {
         </div>
 
         {/* Contact Info Section */}
-        <div className="w-full md:w-1/3 flex flex-col justify-center gap-6 text-gray-800">
+        <div className="w-full p-4 md:w-1/3 flex flex-col justify-center gap-6 text-gray-800">
           <div className="flex items-center gap-4">
             <FaPhoneAlt className="text-yellow-500 text-2xl" />
             <div>
@@ -48,7 +48,7 @@ const ContactMap = () => {
           </div>
 
           <div className="flex items-start gap-4">
-            <FaMapMarkerAlt className="text-yellow-500 text-2xl mt-1" />
+            <FaMapMarkerAlt className="text-yellow-500 text-5xl" />
             <div>
               <p className="text-lg font-medium">Location</p>
               <p className="text-sm text-gray-600">
