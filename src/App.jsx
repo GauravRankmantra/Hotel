@@ -11,6 +11,7 @@ import Home from "./pages/Home"
 import About from "./pages/About"
 import Contact from "./pages/Contact"
 import Room from "./pages/Room";
+import Event from "./pages/Event";
 
 
 const App = () => {
@@ -24,7 +25,8 @@ const App = () => {
             <Route path="/about" element={<About />} />
            
             <Route path="/contact" element={<Contact />} />
-            /* <Route path="/rooms" element={<Room />} />
+             <Route path="/rooms" element={<Room />} />
+             <Route path="/events" element={<Event />} />
           </Route>
           {/* <Route path="/login" element={<Login />} />
         <Route path="/register" element={<SignUp />} />

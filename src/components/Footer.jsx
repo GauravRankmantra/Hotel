@@ -100,7 +100,7 @@ const Footer = () => {
 
       {/* Bottom */}
       <div className="text-center text-gray-500 text-sm mt-6">
-        © {new Date().getFullYear()} Water Hill Cottage. All rights reserved.
+        © {new Date().getFullYear()} Chandra Inn. All rights reserved.
       </div>
     </footer>
   );

@@ -1,67 +1,169 @@
 import React from "react";
-import { FaLongArrowAltDown } from "react-icons/fa";
-
-import bg from "../assets/heroBg.jpg";
-import logo1s from "../assets/logo1s.svg";
-import SplitText from "./SplitText";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Autoplay, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import wedding from "../assets/events/wedding.png";
+import birthday from "../assets/slider/1.jpg";
+import corporateEvents from "../assets/slider/3.jpg"; // Using corporate image as it was "Seamless Events"
+import { BsArrowRight } from "react-icons/bs";
 
 const HeroSection = () => {
+  const slidesData = [
+    {
+      img: wedding,
+      heading: "Crafting Magical Wedding Celebrations",
+      desc: "Immerse yourselves in nature's beauty as you begin your journey together. Our exquisite venues and dedicated team ensure a wedding beyond your dreams.",
+    },
+    {
+      img: birthday,
+      heading: "Vibrant Birthday Celebrations Tailored for You",
+      desc: "Celebrate another year with a bespoke party filled with joy, laughter, and unforgettable moments. From intimate gatherings to grand affairs.",
+    },
+    {
+      img: corporateEvents,
+      heading: "Elevate Your Corporate Events with Seamless Excellence",
+      desc: "Impress your colleagues and clients with sophisticated events in a serene setting. We handle every detail for productive and memorable experiences.",
+    },
+  ];
+
   return (
-    <div className="relative h-[45rem] bg-gray-100 font-ralewayB overflow-hidden">
-      {/* Background Image */}
-      <img
-        src={bg}
-        alt="Hotel Lobby"
-        className="absolute inset-0 w-full h-full object-cover object-top z-0"
-      />
-      <div className="absolute inset-0 bg-black/15 md:bg-black/0 z-0" />
-
-      {/* Gradient Top & Bottom */}
-      <div className="absolute top-0 left-0  w-full h-32 bg-gradient-to-b from-white to-transparent z-30" />
-      <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-white/60 to-transparent z-10" />
-
-      {/* Content */}
-      <div className="relative md:z-20 mt-5 md:mt-20 flex flex-col z-50  items-center justify-start text-center h-full px-6">
-        <h1 className="relative">
-          <SplitText
-            text="Discover Your Dream Stay"
-            className=" text-5xl lg:text-7xl font-ralewayB  bg-clip-text text-black drop-shadow-md leading-tight"
-            delay={150}
-            animationFrom={{ opacity: 0, transform: "translate3d(0,50px,0)" }}
-            animationTo={{ opacity: 1, transform: "translate3d(0,0,0)" }}
-            easing="easeOutCubic"
-            threshold={0.2}
-            rootMargin="-50px"
-          />
-
-          <img
-            src={logo1s}
-            alt="Logo"
-            className="absolute  w-10 h-10 md:w-16 md:h-16 -top-10 right-[-1.5rem] md:-top-16 md:right-[-4rem] "
-          />
-        </h1>
-
-        <p className="mt-6 text-lg sm:text-xl text-white drop-shadow-2xl md:text-gray-700 max-w-2xl font-ralewayM leading-relaxed">
-          Experience unparalleled luxury and comfort at our exquisite hotel.
-          Your perfect getaway awaits with elegance, style, and tranquility.
-        </p>
-
-        <button
-          className="mt-10 bg-gradient-to-r from-[#f79b1e] to-[#e72025] text-white py-3 px-8 rounded-full text-lg font-semibold 
-                     shadow-xl hover:shadow-2xl hover:scale-105 transition-transform duration-300"
+    <div className="w-full h-max md:h-screen flex flex-col md:flex-row rounded-md overflow-hidden shadow-xl">
+      {/* Left Side - Slider */}
+      <div className="md:w-8/12 w-full h-1/2 md:h-full relative">
+        <Swiper
+          modules={[Navigation, Autoplay, Pagination]}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          loop={true}
+          className="h-full"
         >
-          Book Your Escape
-        </button>
+          {slidesData.map((slide, idx) => (
+            <SwiperSlide key={idx}>
+              <div
+                className="h-full bg-cover bg-center flex items-center justify-center text-white p-8 md:p-16"
+                style={{ backgroundImage: `url(${slide.img})` }}
+              >
+                <div className="absolute inset-0 bg-black/30 " />
+                <div className="relative z-10 text-center max-w-xl">
+                  <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
+                    {slide.heading}
+                  </h2>
+                  <p className="text-xs md:text-lg text-gray-200 mb-6">{slide.desc}</p>
+                  <button className="bg-[#f79b1e] text-white font-semibold px-6 py-3 rounded-full transition-colors duration-300 shadow-md">
+                    Explore More <BsArrowRight className="inline-block ml-2" />
+                  </button>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
 
-      {/* Explore More Section */}
-      <div className="absolute bottom-8 left-0 right-0 z-30 flex flex-col items-center animate-bounce">
-        <span className="text-white text-sm bg-black/30 px-3 py-1 rounded-full mb-2">
-          Explore More
-        </span>
-        <button className="bg-white/90 p-3 rounded-full shadow-lg hover:scale-105 transition-transform">
-          <FaLongArrowAltDown className="text-black w-5 h-5" />
-        </button>
+      {/* Right Side - Modern Form */}
+      <div className="md:w-1/2 w-full h-1/2  md:h-full flex items-center justify-center bg-gray-50 p-8 md:p-12 lg:p-16">
+        <div className="w-full max-w-md bg-white rounded-xl shadow-lg overflow-hidden">
+          <div className="bg-yellow-100 py-6 px-8 border-b border-yellow-200">
+            <h3 className="text-2xl font-semibold text-yellow-700 text-center">
+              Let's Plan Your Special Day
+            </h3>
+            <p className="text-gray-600 text-center mt-1 text-sm">
+              Tell us about your event.
+            </p>
+          </div>
+          <form className="py-8 px-8 space-y-4">
+            <div>
+              <label
+                htmlFor="fullName"
+                className="block text-gray-700 text-sm font-bold mb-2"
+              >
+                Full Name
+              </label>
+              <input
+                type="text"
+                id="fullName"
+                placeholder="Your Name"
+                className="shadow-inner appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="email"
+                className="block text-gray-700 text-sm font-bold mb-2"
+              >
+                Email Address
+              </label>
+              <input
+                type="email"
+                id="email"
+                placeholder="Your Email"
+                className="shadow-inner appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor="phone"
+                className="block text-gray-700 text-sm font-bold mb-2"
+              >
+                Phone Number
+              </label>
+              <input
+                type="number"
+                id="phone"
+                placeholder="Your Phone"
+                className="shadow-inner appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="message"
+                className="block text-gray-700 text-sm font-bold mb-2"
+              >
+                Message
+              </label>
+              <textarea
+                type="text"
+                id="message"
+                placeholder="Your Message"
+                className="shadow-inner appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+            </div>
+
+            {/* <div>
+              <label htmlFor="eventType" className="block text-gray-700 text-sm font-bold mb-2">Event Type</label>
+              <div className="relative">
+                <select
+                  id="eventType"
+                  className="shadow-inner appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                >
+                  <option>Wedding</option>
+                  <option>Birthday</option>
+                  <option>Anniversary</option>
+                  <option>Corporate Event</option>
+                  <option>Other</option>
+                </select>
+                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                  <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                </div>
+              </div>
+            </div> */}
+            {/* <div>
+              <label htmlFor="date" className="block text-gray-700 text-sm font-bold mb-2">Date of Event</label>
+              <input
+                type="date"
+                id="date"
+                className="shadow-inner appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+            </div> */}
+            <button
+              type="submit"
+              className="bg-[#f79b1e] text-white font-bold py-3 rounded shadow-md transition-colors duration-300 w-full"
+            >
+              Send <BsArrowRight className="inline-block ml-2" />
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );

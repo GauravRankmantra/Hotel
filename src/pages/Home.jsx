@@ -15,6 +15,8 @@ import slider5 from "../assets/slider/5.jpg";
 import slider6 from "../assets/slider/6.jpg";
 import slider7 from "../assets/slider/7.jpg";
 import slider8 from "../assets/slider/8.jpg";
+import WhyChooseUs from "../components/WhyChooseUs";
+import ContactMap from "../components/ContactMap";
 
 const Home = () => {
   const baseImages = [
@@ -68,15 +70,18 @@ const Home = () => {
 
   return (
     <div className="bg-white">
-      <div className="mt-10">
+      <div>
         <HomeHero />
       </div>
       <div className="z-50">
         <EventShowcase />
       </div>
       <div>
-        <HomeHero2 />
+        <WhyChooseUs />
       </div>
+      {/* <div>
+        <HomeHero2 />
+      </div> */}
       <div className="w-[90%] mx-auto my-20">
         <div className="flex justify-between items-center">
           <div>
@@ -100,13 +105,13 @@ const Home = () => {
       </div>
 
       <hr className="text-gray-300"></hr>
-      <div className="mt-10 flex justify-center flex-col items-center">
+      <div className="md:mt-20 mt-10 flex justify-center flex-col items-center">
         <h1 className="text-4xl font-ralewayB my-5">Our Gallery</h1>
         <GridMotion items={items} />
       </div>
 
       <div>
-        <ContactSection />
+        <ContactMap />
       </div>
     </div>
   );

@@ -64,7 +64,7 @@ const EventBookingBento = () => {
   const { ref, inView } = useInView({ triggerOnce: false, threshold: 0.2 });
 
   return (
-    <section className="px-4 md:px-12 py-5 md:py-16 bg-gray-50 " ref={ref}>
+    <section className="px-4 md:px-12 py-5 md:py-16 bg-gradient-to-br from-orange-100 via-yellow-100 to-orange-200 " ref={ref}>
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">
         Host Unforgettable Moments With Us
       </h2>
