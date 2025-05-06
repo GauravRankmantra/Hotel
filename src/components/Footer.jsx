@@ -7,6 +7,7 @@ import {
   FaEnvelope,
   FaMapMarkerAlt,
 } from "react-icons/fa";
+import {Link} from "react-router-dom"
 import { motion } from "framer-motion";
 import logo from "../assets/logo.jpg"; // Replace with your actual logo path
 
@@ -38,24 +39,24 @@ const Footer = () => {
           <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
           <ul className="space-y-6 text-gray-700 text-sm">
             <li>
-              <a href="#about" className="hover:text-black transition">
+              <Link to="/about" className="hover:text-black transition">
                 About Us
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#rooms" className="hover:text-black transition">
-                Rooms & Cottages
-              </a>
+              <Link to="/rooms" className="hover:text-black transition">
+                Rooms 
+              </Link>
             </li>
             <li>
-              <a href="#adventure" className="hover:text-black transition">
-                Adventure
-              </a>
+              <Link to="/events" className="hover:text-black transition">
+                Events
+              </Link>
             </li>
             <li>
-              <a href="#contact" className="hover:text-black transition">
+              <Link to="/contact" className="hover:text-black transition">
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </motion.div>
@@ -71,19 +72,19 @@ const Footer = () => {
           <ul className="space-y-6 text-gray-800 text-sm">
             <li className="flex items-center gap-2">
               <FaPhoneAlt className="text-[#f79b1e] text-2xl" />
-              <a href="tel:+919876543210">+91 98765 43210</a>
+              <Link href="tel:+919876543210">+91 98765 43210</Link>
             </li>
             <li className="flex items-center gap-2">
               <FaEnvelope className="text-red-400 text-2xl" />
-              <a href="mailto:info@yourhotel.com">info@chandrainn.com</a>
+              <Link href="mailto:info@yourhotel.com">info@chandrainn.com</Link>
             </li>
             <li className="flex items-center gap-2">
               <FaMapMarkerAlt className="text-yellow-500 text-6xl" />
 
-              <a href="mailto:info@yourhotel.com">
+              <Link href="mailto:info@yourhotel.com">
                 Haridwar Bypass Rd, opp. Big Bazaar Mall, near ISBT, Chaudhary
                 Colony, Majra, Dehradun, Shewala Kala, Uttarakhand 248001
-              </a>
+              </Link>
             </li>
           </ul>
         </motion.div>
@@ -97,30 +98,30 @@ const Footer = () => {
         >
           <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
           <div className="flex gap-4">
-            <a
+            <Link
               href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#f79b1e] hover:bg-indigo-600 text-white p-3 rounded-full transition"
             >
               <FaFacebookF />
-            </a>
-            <a
+            </Link>
+            <Link
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#a24037] hover:bg-pink-600 text-white p-3 rounded-full transition"
             >
               <FaInstagram />
-            </a>
-            <a
+            </Link>
+            <Link
               href="https://twitter.com"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#e9692a] text-white hover:bg-blue-600 p-3 rounded-full transition"
             >
               <FaTwitter />
-            </a>
+            </Link>
           </div>
         </motion.div>
       </div>
