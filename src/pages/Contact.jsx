@@ -51,7 +51,7 @@ const Contact = () => {
               src={contactImage}
               alt="Contact Us"
               className="w-full h-full object-cover"
-              style={{ minHeight: '800px' }}
+              style={{ minHeight: '500px' }}
             />
           </div>
 
