@@ -99,7 +99,7 @@ const Footer = () => {
           <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
           <div className="flex gap-4">
             <Link
-              href="https://facebook.com"
+              href="https://www.facebook.com/people/Hotel-Chandra-Celebrations/61563296889458/"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#f79b1e] hover:bg-indigo-600 text-white p-3 rounded-full transition"
@@ -107,7 +107,7 @@ const Footer = () => {
               <FaFacebookF />
             </Link>
             <Link
-              href="https://instagram.com"
+              href="https://www.instagram.com/hotel_chandraa_celebrations/"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#a24037] hover:bg-pink-600 text-white p-3 rounded-full transition"

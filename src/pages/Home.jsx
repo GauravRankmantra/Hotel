@@ -15,6 +15,12 @@ import slider5 from "../assets/slider/5.jpg";
 import slider6 from "../assets/slider/6.jpg";
 import slider7 from "../assets/slider/7.jpg";
 import slider8 from "../assets/slider/8.jpg";
+import slider9 from "../assets/events/wedding3.jpg";
+import slider10 from "../assets/events/wedding4.jpg";
+import slider11 from "../assets/events/wedding5.jpg";
+import slider12 from "../assets/events/wedding6.jpg";
+import slider13 from "../assets/events/wedding7.jpg";
+import slider14 from "../assets/events/wedding2.png";
 import WhyChooseUs from "../components/WhyChooseUs";
 import ContactMap from "../components/ContactMap";
 
@@ -28,6 +34,12 @@ const Home = () => {
     slider6,
     slider7,
     slider8,
+    slider9,
+    slider10,
+    slider11,
+    slider12,
+    slider13,
+    slider14,
   ];
 
   const shuffleArray = (array) => {

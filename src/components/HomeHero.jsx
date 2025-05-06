@@ -4,15 +4,28 @@ import { Navigation, Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import wedding from "../assets/events/wedding2.png";
+import wedding from "../assets/events/wedding3.jpg";
+import wedding2 from "../assets/events/wedding4.jpg";
+import wedding3 from "../assets/events/wedding7.jpg";
 import birthday from "../assets/slider/1.jpg";
 import corporateEvents from "../assets/slider/3.jpg"; // Using corporate image as it was "Seamless Events"
 import { BsArrowRight } from "react-icons/bs";
 import { useNavigate } from "react-router";
 
 const HeroSection = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const slidesData = [
+    {
+      img: wedding3,
+      heading: "Your Dream Wedding, Effortlessly Planned",
+      desc: "We handle all your wedding expectations, from elegant decor to seamless coordination.",
+    },
+    {
+      img: wedding2,
+      heading: "Celebrate Your Special Day with Us",
+      desc: "Create unforgettable wedding memories in our stunning venues with exceptional service.",
+    },
+    ,
     {
       img: wedding,
       heading: "Crafting Magical Wedding Celebrations",
@@ -31,7 +44,7 @@ const HeroSection = () => {
   ];
 
   return (
-    <div className="w-full h-max md:h-screen flex flex-col md:flex-row rounded-md overflow-hidden shadow-xl">
+    <div className="w-full h-max md:h-screen flex flex-col md:flex-row  overflow-hidden shadow-xl">
       {/* Left Side - Slider */}
       <div className="md:w-8/12 w-full h-1/2 md:h-full relative">
         <Swiper
@@ -43,18 +56,19 @@ const HeroSection = () => {
           {slidesData.map((slide, idx) => (
             <SwiperSlide key={idx}>
               <div
-                className="md:h-full h-[350px]  bg-center flex items-center  justify-center text-white p-8 md:p-16"
+                className="md:h-full h-[45rem]  bg-center flex items-center  justify-center text-white p-8 md:p-16"
                 style={{ backgroundImage: `url(${slide.img})` }}
               >
-                <div className="absolute inset-0 bg-black/30 " />
-                <div className="relative z-10 text-center max-w-xl">
+                {/* <div className="absolute inset-0 bg-black/10 " /> */}
+                <div className="absolute bg-black/30  bottom-1 z-10 text-center max-w-4xl">
                   <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold mb-4 leading-tight">
                     {slide.heading}
                   </h2>
                   {/* <p className="text-xs md:text-lg text-gray-200 mb-6">{slide.desc}</p> */}
                   <button
-                  onClick={()=>navigate("/contact")}
-                  className="bg-[#f79b1e]  text-white font-semibold text-xs md:text-sm px-3 py-3 md:px-6 md:py-3 rounded-full transition-colors duration-300 shadow-md">
+                    onClick={() => navigate("/contact")}
+                    className="bg-[#f79b1e]  text-white font-semibold text-xs md:text-sm px-3 py-3 md:px-6 md:py-3 rounded-full transition-colors duration-300 shadow-md"
+                  >
                     <span>Book Now </span>
                     <BsArrowRight className="inline-block ml-1" />
                   </button>
@@ -66,7 +80,7 @@ const HeroSection = () => {
       </div>
 
       {/* Right Side - Modern Form */}
-      <div className="md:w-1/2 w-full h-1/2  md:h-full flex items-center justify-center bg-gray-50 p-8 md:p-12 lg:p-16">
+      <div className="md:w-1/2 w-full h-1/2  md:h-full flex items-center justify-center bg-gray-50 p-4 md:p-12 lg:p-16">
         <div className="w-full max-w-md bg-white rounded-xl shadow-lg overflow-hidden">
           <div className="bg-yellow-100 py-6 px-8 border-b border-yellow-200">
             <h3 className="text-2xl font-semibold text-yellow-700 text-center">

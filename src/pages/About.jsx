@@ -41,7 +41,7 @@ const teamMembers = [
 const About = () => {
   return (
     <motion.div
-      className="bg-gray-100 min-h-screen py-16"
+      className=" min-h-screen py-16"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}

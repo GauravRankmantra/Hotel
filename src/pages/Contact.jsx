@@ -10,9 +10,10 @@ const Contact = () => {
     name: "",
     email: "",
     message: "",
+    number:"",
   });
 
-  const isFormValid = form.name && form.email && form.message;
+  const isFormValid = form.name && form.email && form.message &&form.number;
 
   const handleChange = (e) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -31,7 +32,7 @@ const Contact = () => {
       .then(
         () => {
           toast.success("Message sent successfully!");
-          setForm({ name: "", email: "", message: "" });
+          setForm({ name: "", email: "", message: "",number:"" });
         },
         (error) => {
           toast.error("Failed to send message. Try again.");
@@ -109,11 +110,11 @@ const Contact = () => {
                     Your Number
                   </label>
                   <input
-                    type="number"
-                    id="phone"
-                    name="phone"
+                    type="text"
+                    id="number"
+                    name="number"
                     placeholder="Enter your Phone Number"
-                    value={form.name}
+                    value={form.number}
                     onChange={handleChange}
                     className="w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 py-2 px-3"
                     required

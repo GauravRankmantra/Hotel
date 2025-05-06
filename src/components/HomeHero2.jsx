@@ -7,22 +7,31 @@ import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import slider1 from "../assets/slider/1.jpg";
+import slider1 from "../assets/events/wedding2.png";
 import slider2 from "../assets/slider/2.jpg";
-import slider3 from "../assets/slider/3.jpg";
-import slider4 from "../assets/slider/5.jpg";
+import slider3 from "../assets/events/wedding3.jpg";
+import slider4 from "../assets/events/wedding4.jpg";
 import slider5 from "../assets/slider/4.jpg";
 import room from "../assets/room/4.png";
 
 const slides = [
   {
     imageUrl: slider3,
-    title: "Breathtaking Coastal Views",
+    title: "Celebrate Your Special Day with Us",
     description:
-      "Witness the breathtaking dawn paint the distant Himalayan peaks in vibrant hues.",
-    subDescription: "Begin your day with nature's grandest display.",
-    callToAction: "See Our Valley View Rooms",
-    navigateTo: "/valley-view-rooms", // Add a navigation target
+      "Create unforgettable wedding memories in our stunning venues with exceptional service.",
+    subDescription: "Your perfect beginning starts here.",
+    callToAction: "Enquire About Wedding Events",
+    navigateTo: "/wedding-events",
+  },
+  {
+    imageUrl: slider1, // Replace with an actual image path
+    title: "Comprehensive Wedding Amenities",
+    description:
+      "From catering to photography, we provide everything you need for a perfect wedding.",
+    subDescription: "Stress-free planning for your joyous occasion.",
+    callToAction: "See Our Wedding Amenities",
+    navigateTo: "/wedding-amenities",
   },
   {
     imageUrl: slider2,
@@ -31,7 +40,7 @@ const slides = [
       "Savor exquisite flavors crafted with local inspiration near the river.",
     subDescription: "Indulge in nature's symphony and culinary artistry.",
     callToAction: "Explore Dining Area",
-    navigateTo: "/dining", // Add a navigation target
+    navigateTo: "/dining",
   },
   {
     imageUrl: room,
@@ -40,25 +49,16 @@ const slides = [
       "Our rooms offer a sanctuary for relaxation after exploration.",
     subDescription: "Experience tranquility and luxury.",
     callToAction: "View Our Luxurious Rooms",
-    navigateTo: "/rooms", // Add a navigation target
+    navigateTo: "/rooms",
   },
   {
     imageUrl: slider4,
-    title: "Inspiring Spaces for Events",
+    title: "Your Dream Wedding, Effortlessly Planned",
     description:
-      "Elevate your celebrations with sophisticated ambiance and seamless service.",
-    subDescription: "Create unforgettable moments.",
-    callToAction: "Plan Your Event",
-    navigateTo: "/events", // Add a navigation target
-  },
-  {
-    imageUrl: slider5,
-    title: "Elegant Lounge for Relaxation",
-    description:
-      "Unwind in our lounge with handcrafted beverages and serene ambiance.",
-    subDescription: "Your perfect evening escape awaits.",
-    callToAction: "Discover Our Evening Lounge",
-    navigateTo: "/lounge", // Add a navigation target
+      "We handle all your wedding expectations, from elegant decor to seamless coordination.",
+    subDescription: "Let us bring your vision to life.",
+    callToAction: "Explore Wedding Packages",
+    navigateTo: "/weddings",
   },
 ];
 
@@ -84,7 +84,6 @@ const HomeHero2 = () => {
             delay: 2000,
             disableOnInteraction: false,
           }}
-       
           spaceBetween={16}
           breakpoints={{
             0: {

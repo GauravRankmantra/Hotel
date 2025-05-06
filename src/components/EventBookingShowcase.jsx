@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import wedding from "../assets/events/wedding.png";
+import wedding from "../assets/events/wedding3.jpg";
 import birthday from "../assets/slider/1.jpg";
 import anniversaries from "../assets/slider/2.jpg";
 import corporateEvents from "../assets/slider/3.jpg";
