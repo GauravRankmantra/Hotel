@@ -98,30 +98,30 @@ const Footer = () => {
         >
           <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
           <div className="flex gap-4">
-            <Link
+            <a
               href="https://www.facebook.com/people/Hotel-Chandra-Celebrations/61563296889458/"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#f79b1e] hover:bg-indigo-600 text-white p-3 rounded-full transition"
             >
               <FaFacebookF />
-            </Link>
-            <Link
+            </a>
+            <a
               href="https://www.instagram.com/hotel_chandraa_celebrations/"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#a24037] hover:bg-pink-600 text-white p-3 rounded-full transition"
             >
               <FaInstagram />
-            </Link>
-            <Link
+            </a>
+            <a
               href="https://twitter.com"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#e9692a] text-white hover:bg-blue-600 p-3 rounded-full transition"
             >
               <FaTwitter />
-            </Link>
+            </a>
           </div>
         </motion.div>
       </div>
