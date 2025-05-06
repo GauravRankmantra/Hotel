@@ -86,18 +86,15 @@ const HomeHero2 = () => {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
           }}
-          //   pagination={{
-          //     clickable: true,
-          //     dynamicBullets: true,
-          //   }}
           className="w-full h-full rounded-xl shadow-2xl"
         >
           {slides.map((slide, index) => (
             <SwiperSlide
               key={index}
-              className="relative w-full h-full flex flex-col md:flex-row items-center rounded-xl overflow-hidden"
+              className="relative  w-full h-full flex flex-col md:flex-row items-center rounded-xl overflow-hidden"
             >
               {/* Image */}
+        
               <div className=" w-full md:w-1/2  h-full flex items-center justify-start ">
                 <img
                   src={slide.imageUrl}

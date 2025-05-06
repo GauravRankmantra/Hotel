@@ -10,6 +10,7 @@ import Layout from "./Layout";
 import Home from "./pages/Home"
 import About from "./pages/About"
 import Contact from "./pages/Contact"
+import Room from "./pages/Room";
 
 
 const App = () => {
@@ -23,7 +24,7 @@ const App = () => {
             <Route path="/about" element={<About />} />
            
             <Route path="/contact" element={<Contact />} />
-            {/* <Route path="/privacy-policy" element={<PrivacyPolicy />} /> */}
+            /* <Route path="/rooms" element={<Room />} />
           </Route>
           {/* <Route path="/login" element={<Login />} />
         <Route path="/register" element={<SignUp />} />

@@ -17,45 +17,54 @@ import slider7 from "../assets/slider/7.jpg";
 import slider8 from "../assets/slider/8.jpg";
 
 const Home = () => {
-    const baseImages = [slider1, slider2, slider3, slider4, slider5, slider6, slider7, slider8];
+  const baseImages = [
+    slider1,
+    slider2,
+    slider3,
+    slider4,
+    slider5,
+    slider6,
+    slider7,
+    slider8,
+  ];
 
-    const shuffleArray = (array) => {
-      const arr = [...array];
-      for (let i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]];
-      }
-      return arr;
-    };
-    
-    const generateItemsWithoutAdjacentDuplicates = () => {
-      const result = [];
-      while (result.length < 28) {
-        const shuffled = shuffleArray(baseImages);
-        for (const img of shuffled) {
-          if (result.length >= 28) break;
-          if (result.length === 0 || result[result.length - 1] !== img) {
-            result.push(img);
-          }
+  const shuffleArray = (array) => {
+    const arr = [...array];
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  };
+
+  const generateItemsWithoutAdjacentDuplicates = () => {
+    const result = [];
+    while (result.length < 28) {
+      const shuffled = shuffleArray(baseImages);
+      for (const img of shuffled) {
+        if (result.length >= 28) break;
+        if (result.length === 0 || result[result.length - 1] !== img) {
+          result.push(img);
         }
       }
-    
-      // If by chance the last two items are the same, adjust the last one
-      for (let i = 1; i < result.length; i++) {
-        if (result[i] === result[i - 1]) {
-          const swapIndex = result.findIndex(
-            (img, idx) => img !== result[i] && img !== result[i - 1] && idx !== i
-          );
-          if (swapIndex !== -1) {
-            [result[i], result[swapIndex]] = [result[swapIndex], result[i]];
-          }
+    }
+
+    // If by chance the last two items are the same, adjust the last one
+    for (let i = 1; i < result.length; i++) {
+      if (result[i] === result[i - 1]) {
+        const swapIndex = result.findIndex(
+          (img, idx) => img !== result[i] && img !== result[i - 1] && idx !== i
+        );
+        if (swapIndex !== -1) {
+          [result[i], result[swapIndex]] = [result[swapIndex], result[i]];
         }
       }
-    
-      return result;
-    };
-    
-    const items = generateItemsWithoutAdjacentDuplicates();
+    }
+
+    return result;
+  };
+
+  const items = generateItemsWithoutAdjacentDuplicates();
 
   return (
     <div className="bg-white">
@@ -90,12 +99,12 @@ const Home = () => {
         <EventBookingShowcase />
       </div>
 
-<hr className="text-gray-300"></hr>
-<div className="mt-10 flex justify-center flex-col items-center" >
-    <h1 className="text-4xl font-ralewayB my-5">Our Gallery</h1>
-<GridMotion items={items} />
-</div>
-     
+      <hr className="text-gray-300"></hr>
+      <div className="mt-10 flex justify-center flex-col items-center">
+        <h1 className="text-4xl font-ralewayB my-5">Our Gallery</h1>
+        <GridMotion items={items} />
+      </div>
+
       <div>
         <ContactSection />
       </div>

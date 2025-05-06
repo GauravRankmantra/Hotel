@@ -73,7 +73,7 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-6 items-center">
-            {["/", "/rooms", "/amenities", "/contact"].map((path) => (
+            {["/", "/rooms", "/events", "/contact"].map((path) => (
               <Link
                 key={path}
                 to={path}
