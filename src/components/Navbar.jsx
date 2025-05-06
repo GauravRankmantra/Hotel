@@ -113,7 +113,7 @@ const Navbar = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white border-t border-gray-200">
           <div className="px-4 py-3 space-y-2">
-            {["/", "/rooms", "/amenities", "/contact"].map((path) => (
+            {["/", "/rooms", "/events", "/aboutUs","/contact"].map((path) => (
               <Link
                 key={path}
                 to={path}
