@@ -19,6 +19,7 @@ const HeroSection = () => {
       img: wedding3,
       heading: "Your Dream Wedding, Effortlessly Planned",
       desc: "We handle all your wedding expectations, from elegant decor to seamless coordination.",
+      
     },
     {
       img: wedding2,
@@ -56,12 +57,12 @@ const HeroSection = () => {
           {slidesData.map((slide, idx) => (
             <SwiperSlide key={idx}>
               <div
-                className="md:h-full h-[45rem]  bg-center flex items-center  justify-center text-white p-8 md:p-16"
+                className="md:h-full h-[35rem]  bg-cover bg-center  flex items-start  justify-center text-white p-8 md:p-16"
                 style={{ backgroundImage: `url(${slide.img})` }}
               >
                 {/* <div className="absolute inset-0 bg-black/10 " /> */}
                 <div className="absolute bg-black/30  bottom-1 z-10 text-center max-w-4xl">
-                  <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold mb-4 leading-tight">
+                  <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-4 leading-tight">
                     {slide.heading}
                   </h2>
                   {/* <p className="text-xs md:text-lg text-gray-200 mb-6">{slide.desc}</p> */}
