@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const ContactMap = () => {
   return (
-    <div className="w-full bg-gray-100 mt-16 py-16 px-4 md:px-20">
+    <div className="w-full mt-16 py-16 px-4 md:px-20">
       <motion.h2
         initial={{ opacity: 0, y: -30 }}
         whileInView={{ opacity: 1, y: 0 }}

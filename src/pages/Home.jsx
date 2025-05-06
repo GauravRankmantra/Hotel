@@ -73,16 +73,17 @@ const Home = () => {
       <div>
         <HomeHero />
       </div>
-      <div className="z-50">
-        <EventShowcase />
-      </div>
+
       <div>
         <WhyChooseUs />
+      </div>
+      <div className="z-50">
+        <EventShowcase />
       </div>
       {/* <div>
         <HomeHero2 />
       </div> */}
-      <div className="w-[90%] mx-auto my-20">
+      {/* <div className="w-[90%] mx-auto my-20">
         <div className="flex justify-between items-center">
           <div>
             {" "}
@@ -99,7 +100,7 @@ const Home = () => {
         </div>
         <Rooms />
         <Rooms2 />
-      </div>
+      </div> */}
       <div>
         <EventBookingShowcase />
       </div>

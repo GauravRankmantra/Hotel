@@ -12,7 +12,7 @@ import logo from "../assets/logo.jpg"; // Replace with your actual logo path
 
 const Footer = () => {
   return (
-    <footer className="bg-white text-gray-800 pt-12 pb-6 px-4 md:px-16">
+    <footer className="bg-gray-100  text-gray-800 pt-12 pb-6 px-4 md:px-16">
       <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-10 border-b border-gray-700 pb-10">
         {/* Logo & About */}
         <motion.div
