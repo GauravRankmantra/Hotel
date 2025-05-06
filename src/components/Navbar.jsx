@@ -26,17 +26,17 @@ const Navbar = () => {
           <div className="flex items-center">
             <a
               href="mailto:info@chandraInn.com"
-              className="hover:text-gray-800 flex items-center space-x-1"
+              className="hover:text-gray-800 flex items-center space-x-2"
             >
-              <MdAlternateEmail />
+              <MdAlternateEmail className="text-yellow-600 text-xl"/>
               <span>
               info@chandraInn.com
               </span>
           
             </a>
             <span className="hidden sm:inline-block mx-2">|</span>
-            <a href="tel:+919876543210" className="hover:text-gray-800 flex items-center space-x-1">
-              <FaPhoneAlt />
+            <a href="tel:+919876543210" className="hover:text-gray-800 flex font-sans items-center space-x-2">
+              <FaPhoneAlt className="text-red-600 text-lg"/>
               <span>
               +91 987xxx908
               </span>
