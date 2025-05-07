@@ -7,7 +7,7 @@ const Layout = () => {
   return (
     <div className="flex bg-white font-ralewayM flex-col min-h-screen">
       {/* <ToastContainer /> */}
-      <div className="top-0">
+      <div className="top-0 sticky z-50">
         <Navbar />
       </div>
 

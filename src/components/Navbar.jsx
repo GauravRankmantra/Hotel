@@ -19,9 +19,9 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white text-black sticky top-0 z-50 shadow">
+    <nav className="bg-white  text-black  z-50 shadow">
       {/* Top Contact Info */}
-      <div className="bg-white border-b border-gray-200 py-2 text-sm text-gray-600">
+      <div className="bg-white top-0 border-b border-gray-200 py-2 text-sm text-gray-600">
         <div className="container mx-auto flex justify-between items-center px-4 sm:px-6 lg:px-8">
           <div className="flex items-center">
             <a
@@ -51,7 +51,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center py-3">
           {/* Logo */}
           <Link to="/" className="hover:text-gray-700">
-            <img src={logo} className="w-36 aspect-auto" alt="logo" />
+            <img src={logo} className="w-20 md:w-28 aspect-auto" alt="logo" />
           </Link>
 
           {/* Mobile Menu Button */}
@@ -95,7 +95,7 @@ const Navbar = () => {
               </Link>
             ))}
             <Link
-              to="/book-now"
+              to="/contact"
               className="bg-[#e9692a] text-white hover:bg-gray-800 py-2 px-4 rounded-md transition duration-300"
             >
               <ShinyText
@@ -131,7 +131,7 @@ const Navbar = () => {
               </Link>
             ))}
             <Link
-              to="/book-now"
+              to="/contact"
               onClick={() => setIsMobileMenuOpen(false)}
               className="block w-full text-center bg-[#e9692a] text-white hover:bg-gray-800 py-2 px-4 rounded-md transition"
             >

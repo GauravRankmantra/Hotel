@@ -5,15 +5,17 @@ import {
   FaTwitter,
   FaPhoneAlt,
   FaEnvelope,
+  FaWhatsapp,
   FaMapMarkerAlt,
 } from "react-icons/fa";
-import {Link} from "react-router-dom"
+
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import logo from "../assets/logo.jpg"; // Replace with your actual logo path
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-100  text-gray-800 pt-12 pb-6 px-4 md:px-16">
+    <footer className="  text-gray-800 pt-12 pb-6 px-4 md:px-16">
       <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-10 border-b border-gray-700 pb-10">
         {/* Logo & About */}
         <motion.div
@@ -45,7 +47,7 @@ const Footer = () => {
             </li>
             <li>
               <Link to="/rooms" className="hover:text-black transition">
-                Rooms 
+                Rooms
               </Link>
             </li>
             <li>
@@ -129,6 +131,20 @@ const Footer = () => {
       {/* Bottom */}
       <div className="text-center text-gray-500 text-sm mt-6">
         © {new Date().getFullYear()} Chandra Inn. All rights reserved.
+      </div>
+      <div className="fixed bottom-6 right-6 z-50">
+        <a
+          href="https://wa.me/918979861717"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp"
+          className="relative  animate-fade-in-slow"
+        >
+          <div className="p-3 w-14 h-14 md:w-16 md:h-16 rounded-full bg-green-100 hover:bg-green-200 shadow-lg transform hover:scale-110 transition-all duration-300 flex items-center justify-center">
+            <FaWhatsapp className="text-green-600 w-8 h-8 md:w-10 md:h-10 " />
+            <span className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 bg-green-500 rounded-full w-2.5 h-2.5 animate-ping"></span>
+          </div>
+        </a>
       </div>
     </footer>
   );

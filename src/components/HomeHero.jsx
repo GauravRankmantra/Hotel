@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -14,12 +15,55 @@ import { useNavigate } from "react-router";
 
 const HeroSection = () => {
   const navigate = useNavigate();
+
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+  const [isSending, setIsSending] = useState(false);
+  const [emailSent, setEmailSent] = useState(false);
+
+  const isFormValid = Object.values(formData).every((val) => val.trim() !== "");
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({ ...prev, [id]: value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsSending(true);
+
+    emailjs
+      .send(
+        "YOUR_SERVICE_ID", // Replace with your EmailJS service ID
+        "YOUR_TEMPLATE_ID", // Replace with your EmailJS template ID
+        formData,
+        "YOUR_USER_PUBLIC_KEY" // Replace with your EmailJS public key
+      )
+      .then(() => {
+        setEmailSent(true);
+        setFormData({
+          fullName: "",
+          email: "",
+          phone: "",
+          message: "",
+        });
+      })
+      .catch((error) => {
+        console.error("Email send error:", error);
+      })
+      .finally(() => {
+        setIsSending(false);
+      });
+  };
   const slidesData = [
     {
       img: wedding3,
       heading: "Your Dream Wedding, Effortlessly Planned",
       desc: "We handle all your wedding expectations, from elegant decor to seamless coordination.",
-      
     },
     {
       img: wedding2,
@@ -61,7 +105,7 @@ const HeroSection = () => {
                 style={{ backgroundImage: `url(${slide.img})` }}
               >
                 {/* <div className="absolute inset-0 bg-black/10 " /> */}
-                <div className="absolute bg-black/30  bottom-1 z-10 text-center max-w-4xl">
+                <div className="absolute bg-black/30 py-5 bottom-1 z-10 text-center max-w-4xl">
                   <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-4 leading-tight">
                     {slide.heading}
                   </h2>
@@ -81,110 +125,80 @@ const HeroSection = () => {
       </div>
 
       {/* Right Side - Modern Form */}
-      <div className="md:w-1/2 w-full h-1/2  md:h-full flex items-center justify-center bg-gray-50 p-4 md:p-12 lg:p-16">
-        <div className="w-full max-w-md bg-white rounded-xl shadow-lg overflow-hidden">
-          <div className="bg-yellow-100 py-6 px-8 border-b border-yellow-200">
-            <h3 className="text-2xl font-semibold text-yellow-700 text-center">
-              Let's Plan Your Special Day
-            </h3>
-            <p className="text-gray-600 text-center mt-1 text-sm">
-              Tell us about your event.
-            </p>
+      <div className="md:w-1/2 w-full h-1/2 md:h-full flex items-center justify-center bg-gray-50 p-4 md:p-12 lg:p-16">
+      <div className="w-full max-w-md bg-white rounded-xl shadow-lg overflow-hidden">
+        <div className="bg-yellow-100 py-6 px-8 border-b border-yellow-200">
+          <h3 className="text-2xl font-semibold text-yellow-700 text-center">
+            Let's Plan Your Special Day
+          </h3>
+          <p className="text-gray-600 text-center mt-1 text-sm">
+            Tell us about your event.
+          </p>
+        </div>
+
+        {emailSent ? (
+          <div className="p-6 text-green-600 text-center font-medium">
+            ✅ Your message has been sent successfully!
           </div>
-          <form className="py-8 px-8 space-y-4">
+        ) : (
+          <form onSubmit={handleSubmit} className="py-8 px-8 space-y-4">
             <div>
-              <label
-                htmlFor="fullName"
-                className="block text-gray-700 text-sm font-bold mb-2"
-              >
-                Full Name
-              </label>
+              <label htmlFor="fullName" className="block text-gray-700 text-sm font-bold mb-2">Full Name</label>
               <input
                 type="text"
                 id="fullName"
+                value={formData.fullName}
+                onChange={handleChange}
                 placeholder="Your Name"
-                className="shadow-inner appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow-inner border border-gray-300 rounded w-full py-2 px-3 text-gray-700 focus:outline-none"
               />
             </div>
             <div>
-              <label
-                htmlFor="email"
-                className="block text-gray-700 text-sm font-bold mb-2"
-              >
-                Email Address
-              </label>
+              <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">Email Address</label>
               <input
                 type="email"
                 id="email"
+                value={formData.email}
+                onChange={handleChange}
                 placeholder="Your Email"
-                className="shadow-inner appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow-inner border border-gray-300 rounded w-full py-2 px-3 text-gray-700 focus:outline-none"
               />
             </div>
-
             <div>
-              <label
-                htmlFor="phone"
-                className="block text-gray-700 text-sm font-bold mb-2"
-              >
-                Phone Number
-              </label>
+              <label htmlFor="phone" className="block text-gray-700 text-sm font-bold mb-2">Phone Number</label>
               <input
                 type="number"
                 id="phone"
+                value={formData.phone}
+                onChange={handleChange}
                 placeholder="Your Phone"
-                className="shadow-inner appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow-inner border border-gray-300 rounded w-full py-2 px-3 text-gray-700 focus:outline-none"
               />
             </div>
             <div>
-              <label
-                htmlFor="message"
-                className="block text-gray-700 text-sm font-bold mb-2"
-              >
-                Message
-              </label>
+              <label htmlFor="message" className="block text-gray-700 text-sm font-bold mb-2">Message</label>
               <textarea
-                type="text"
                 id="message"
+                value={formData.message}
+                onChange={handleChange}
                 placeholder="Your Message"
-                className="shadow-inner appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow-inner border border-gray-300 rounded w-full py-2 px-3 text-gray-700 focus:outline-none"
               />
             </div>
-
-            {/* <div>
-              <label htmlFor="eventType" className="block text-gray-700 text-sm font-bold mb-2">Event Type</label>
-              <div className="relative">
-                <select
-                  id="eventType"
-                  className="shadow-inner appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                >
-                  <option>Wedding</option>
-                  <option>Birthday</option>
-                  <option>Anniversary</option>
-                  <option>Corporate Event</option>
-                  <option>Other</option>
-                </select>
-                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                  <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                </div>
-              </div>
-            </div> */}
-            {/* <div>
-              <label htmlFor="date" className="block text-gray-700 text-sm font-bold mb-2">Date of Event</label>
-              <input
-                type="date"
-                id="date"
-                className="shadow-inner appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              />
-            </div> */}
             <button
               type="submit"
-              className="bg-[#f79b1e] text-white font-bold py-3 rounded shadow-md transition-colors duration-300 w-full"
+              disabled={!isFormValid || isSending}
+              className={`bg-[#f79b1e] text-white font-bold py-3 rounded shadow-md w-full transition-opacity ${
+                (!isFormValid || isSending) ? "opacity-50 cursor-not-allowed" : "hover:bg-[#e68a0e]"
+              }`}
             >
-              Send <BsArrowRight className="inline-block ml-2" />
+              {isSending ? "Sending..." : <>Send <BsArrowRight className="inline-block ml-2" /></>}
             </button>
           </form>
-        </div>
+        )}
       </div>
+    </div>
+
     </div>
   );
 };
