@@ -13,40 +13,18 @@ import {
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 
-import room1 from "../assets/room/1.png";
-import room2 from "../assets/room/2.png";
-import room3 from "../assets/room/3.png";
-import room4 from "../assets/room/4.png";
+import room1 from "../assets/room/1.jpg";
+import room2 from "../assets/room/2.jpg";
+import room3 from "../assets/room/3.jpg";
+import room4 from "../assets/room/4.jpg";
+import room5 from "../assets/room/5.jpg"
+import { useNavigate } from "react-router";
 
 const roomsData = [
-  {
-    id: 1,
-    name: "Deluxe Sea View Room",
-    images: [room1, room4, room2],
-    pricePerNight: 4500,
-    description:
-      "A modern, sunlit room with floor-to-ceiling windows offering spectacular sea views. Designed for ultimate relaxation with premium bedding and serene decor.",
-    amenities: [
-      "King-size bed",
-      "Private sea-facing balcony",
-      "Rainfall shower",
-      "Smart TV (Netflix/Prime)",
-      "Tea & coffee maker",
-      "Mini-bar",
-      "Free high-speed Wi-Fi",
-      "Room service (24x7)",
-    ],
-    bedType: "King",
-    maxGuests: 2,
-    roomSize: "35 sqm",
-    view: "Ocean",
-    includedMeals: "Breakfast",
-    available: true,
-    rating: 4.2,
-  },
+
   {
     id: 2,
-    name: "Family Suite With Garden View",
+    name: "Family Suite ",
     images: [room2, room4, room3],
     pricePerNight: 7200,
     description:
@@ -69,34 +47,11 @@ const roomsData = [
     available: true,
     rating: 4.0,
   },
-  {
-    id: 3,
-    name: "Executive Cottage With Jacuzzi",
-    images: [room3, room1, room2],
-    pricePerNight: 9800,
-    description:
-      "A luxurious private cottage nestled in nature. Enjoy the open-air Jacuzzi, wooden interiors, and a romantic ambiance perfect for couples or solo travelers.",
-    amenities: [
-      "Outdoor Jacuzzi",
-      "Private patio & garden",
-      "Fireplace",
-      "Butler service (on request)",
-      "Complimentary mini-bar",
-      "Bathrobes & slippers",
-      "Wi-Fi & Smart TV",
-    ],
-    bedType: "King",
-    maxGuests: 2,
-    roomSize: "70 sqm",
-    view: "Forest",
-    includedMeals: "Breakfast & Dinner",
-    available: false,
-    rating: 4.5,
-  },
+
   {
     id: 4,
     name: "Budget Room (Non-AC)",
-    images: [room4, room1, room3],
+    images: [room5],
     pricePerNight: 1800,
     description:
       "Clean and comfortable non-AC room, best suited for solo travelers or backpackers. Basic amenities with access to common lounge and kitchen.",
@@ -118,7 +73,7 @@ const roomsData = [
   },
   {
     id: 5,
-    name: "Luxury Poolside Room",
+    name: "Luxury  Room",
     images: [room3, room4, room1],
     pricePerNight: 6500,
     description:
@@ -140,32 +95,33 @@ const roomsData = [
     available: true,
     rating: 4.2,
   },
-  {
-    id: 6,
-    name: "Mountain View Suite",
-    images: [room3, room1],
-    pricePerNight: 5300,
-    description:
-      "Wake up to stunning mountain vistas. This suite offers a warm wooden interior, reading nook, and panoramic balcony views of the hills.",
-    amenities: [
-      "Queen-size bed",
-      "Panoramic balcony",
-      "Reading corner",
-      "Coffee machine",
-      "Heater",
-      "Room service",
-    ],
-    bedType: "Queen",
-    maxGuests: 2,
-    roomSize: "38 sqm",
-    view: "Mountain",
-    includedMeals: "Breakfast",
-    available: true,
-    rating: 4.5,
-  },
+  // {
+  //   id: 6,
+  //   name: "Mountain View Rooms",
+  //   images: [room3, room1],
+  //   pricePerNight: 5300,
+  //   description:
+  //     "Wake up to stunning mountain vistas. This suite offers a warm wooden interior, reading nook, and panoramic balcony views of the hills.",
+  //   amenities: [
+  //     "Queen-size bed",
+  //     "Panoramic balcony",
+  //     "Reading corner",
+  //     "Coffee machine",
+  //     "Heater",
+  //     "Room service",
+  //   ],
+  //   bedType: "Queen",
+  //   maxGuests: 2,
+  //   roomSize: "38 sqm",
+  //   view: "Mountain",
+  //   includedMeals: "Breakfast",
+  //   available: true,
+  //   rating: 4.5,
+  // },
 ];
 
 const Rooms2 = () => {
+
   return (
     <section className="hidden md:flex py-16 px-4 bg-gray-100">
       <div className="max-w-7xl mx-auto">
@@ -184,6 +140,7 @@ const Rooms2 = () => {
 };
 
 const RoomCard = ({ room }) => {
+  const navigate = useNavigate();
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const [swiperReady, setSwiperReady] = useState(false);
@@ -266,10 +223,10 @@ const RoomCard = ({ room }) => {
           {renderRatingStars(room.rating)}
         </div>
 
-        <div className="mt-4 text-green-600 font-sans font-semibold">
+        {/* <div className="mt-4 text-green-600 font-sans font-semibold">
           ₹{room.pricePerNight}<span className="text-gray-800 font-ralewayM">/ night</span> 
-        </div>
-        <button className="mt-4 bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition">
+        </div> */}
+        <button onClick={()=>navigate('/contact')} className="mt-4 bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition">
           Book Now
         </button>
       </div>

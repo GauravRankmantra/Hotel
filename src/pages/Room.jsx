@@ -1,6 +1,6 @@
 import React from 'react';
-import bg from "../assets/room/5.jpeg"
-import room1 from "../assets/room/4.png"
+import bg from "../assets/room/5.jpg"
+import room1 from "../assets/room/4.jpg"
 import Rooms from "../components/Rooms";
 import Rooms2 from "../components/Rooms2";
 
@@ -20,7 +20,7 @@ const Room = () => {
             <p className="text-lg md:text-xl mb-6">
               Discover our elegant rooms tailored for luxury, peace, and unforgettable experiences.
             </p>
-            <a href="#available-rooms">
+            <a href="/contact">
               <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-full shadow-lg transition duration-300">
                 Explore Rooms
               </button>

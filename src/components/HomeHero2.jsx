@@ -12,7 +12,7 @@ import slider2 from "../assets/slider/2.jpg";
 import slider3 from "../assets/events/wedding3.jpg";
 import slider4 from "../assets/events/wedding4.jpg";
 import slider5 from "../assets/slider/4.jpg";
-import room from "../assets/room/4.png";
+import room from "../assets/room/4.jpg";
 
 const slides = [
   {
@@ -65,13 +65,10 @@ const slides = [
 const HomeHero2 = () => {
   const navigate = useNavigate();
 
-  const handleButtonClick = (path) => {
-    if (path) {
-      navigate(path);
-    } else {
-      console.log("No navigation path defined for this slide.");
-      // Optionally handle cases where navigateTo is not defined
-    }
+  const handleButtonClick = () => {
+
+      navigate("/contact");
+
   };
 
   return (
@@ -142,7 +139,7 @@ const HomeHero2 = () => {
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.4, delay: 0.3 }}
-                    onClick={() => handleButtonClick(slide.navigateTo)} // Use dynamic navigation
+                    onClick={() => handleButtonClick()} // Use dynamic navigation
                     className="mt-4 w-max mx-auto md:mx-0 bg-black text-white px-6 py-3 rounded-full hover:bg-white hover:text-black border border-black transition-all"
                   >
                     {slide.callToAction}
